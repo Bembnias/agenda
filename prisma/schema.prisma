@@ -1,15 +1,9 @@
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
     provider = "prisma-client-js"
 }
 
 datasource db {
     provider = "postgresql"
-    // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below
-    // Further reading:
-    // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
-    // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
     url      = env("DATABASE_URL")
 }
 
@@ -39,11 +33,11 @@ model Account {
 }
 
 model Session {
-    id           String   @id @default(cuid())
-    sessionToken String   @unique
+    id           String     @id @default(cuid())
+    sessionToken String     @unique
     userId       String
     expires      DateTime
-    user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model User {
@@ -52,14 +46,72 @@ model User {
     email         String?   @unique
     emailVerified DateTime?
     image         String?
+    comments      Comment[]
+    articles      Article[]
+    role          Role      @default(USER)
     accounts      Account[]
     sessions      Session[]
 }
 
 model VerificationToken {
     identifier String
-    token      String   @unique
+    token      String       @unique
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+model Article {
+  id            String      @id @default(cuid())
+  title         String
+  description   String
+  content       String
+  author        User        @relation(fields: [authorId], references: [id])
+  authorId      String
+  images        Image[]
+  comments      Comment[]
+  category      Category    @default(NONE)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model Comment {
+  id            String      @id @default(cuid())
+  content       String      @db.Text
+  author        User        @relation(fields: [authorId], references: [id])
+  authorId      String
+  article       Article     @relation(fields: [articleId], references: [id])
+  articleId     String
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model Image {
+  id            String      @id @default(cuid())
+  url           String
+  article       Article     @relation(fields: [articleId], references: [id])
+  articleId     String
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+enum Role {
+  USER
+  PUBLISHER
+}
+
+enum Category {
+  NONE
+  TECHNOLOGY
+  ASTRONOMY
+  SCIENCE
+  CHEMISTRY
+  BIOLOGY
+  LIFE_STYLE
+  ENGINEERING
+  COMPUTER_SCIENCE
+  ENVIRONMENT
+  EDUCATION
+  GEOGRAPHY
+  MATEMATIC
 }
