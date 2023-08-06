@@ -1,3 +1,30 @@
 {
-  "hello": "Hello"
+  "navbar.aboutUs": "About us",
+  "navbar.articles": "Articles",
+  "navbar.pricing": "Pricing",
+
+  "category.technology": "Technology",
+  "category.technologyDesc": "Latest advancements and news in technology.",
+  "category.astronomy": "Astronomy",
+  "category.astronomyDesc": "Discoveries, studies, and news about the universe.",
+  "category.science": "Science",
+  "category.scienceDesc": "Broad spectrum of scientific discoveries and research.",
+  "category.chemistry": "Chemistry",
+  "category.chemistryDesc": "Insights into chemical substances and their interactions.",
+  "category.biology": "Biology",
+  "category.biologyDesc": "Exploring life and organisms in their environment.",
+  "category.lifeStyle": "Life Style",
+  "category.lifeStyleDesc": "Trends and advice on modern lifestyle choices.",
+  "category.engineering": "Engineering",
+  "category.engineeringDesc": "Innovative solutions and designs in engineering.",
+  "category.computerScience": "Computer Science",
+  "category.computerScienceDesc": "Updates on computing technologies and theories.",
+  "category.environment": "Environment",
+  "category.environmentDesc": "News and studies on environmental conservation.",
+  "category.education": "Education",
+  "category.educationDesc": "Innovations and developments in education sector.",
+  "category.geography": "Geography",
+  "category.geographyDesc": "Insights into geographical studies and discoveries.",
+  "category.matematics": "Matematics",
+  "category.matematicsDesc": "Updates on mathematical theories and applications."
 }

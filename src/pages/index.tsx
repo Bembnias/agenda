@@ -4,7 +4,7 @@ import Link from "next/link";
 import { api } from "@/utils/api";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "@/hooks/useTranslations";
-import { useLanguage } from "./providers/LocaleProvider";
+import { useLanguage } from "../components/providers/locale-provider";
 import Image from "next/image";
 
 export default function Home() {

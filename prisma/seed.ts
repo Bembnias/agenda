@@ -5,6 +5,7 @@ async function main() {
   await prisma.article.createMany({
     data: [
       {
+        id: "dsfdskxchnusb2321hdsjdsad",
         title: "Best innovations in 2023",
         description:
           "Dive into our latest article to uncover the groundbreaking technology invention that's poised to revolutionize the way we live, work, and interact with the world around us. Learn how this cutting-edge innovation holds the potential to transform industries and redefine the future. Don't miss this exciting glimpse into the world of tomorrow – explore the possibilities today!",
@@ -15,6 +16,7 @@ async function main() {
         authorId: "clkrc8gzu0000tb1g3nt6as5t",
       },
       {
+        id: "3249hndskj@3434j5b89sd",
         title: "Sleep efficiency",
         description:
           "Learn how optimizing your sleep can lead to improved cognitive function, enhanced mood, and better overall health.",
@@ -31,7 +33,7 @@ async function main() {
     data: {
       content: "Very interesting article, thanks for sharing your knowledge!",
       authorId: "clkrc8gzu0000tb1g3nt6as5t",
-      articleId: "clku3vpy90001tb84l8tozsa8",
+      articleId: "3249hndskj@3434j5b89sd",
     },
   });
 }

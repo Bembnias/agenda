@@ -35,14 +35,15 @@ model Session {
 }
 
 model User {
-    id            String    @id @default(cuid())
+    id            String        @id @default(cuid())
     name          String?
-    email         String?   @unique
+    email         String?       @unique
     emailVerified DateTime?
     image         String?
     comments      Comment[]
     articles      Article[]
-    role          Role      @default(USER)
+    role          Role          @default(USER)
+    subscription  Subscription  @default(FREE)
     accounts      Account[]
     sessions      Session[]
 }
@@ -99,4 +100,9 @@ enum Category {
   EDUCATION
   GEOGRAPHY
   MATEMATIC
+}
+
+enum Subscription {
+  FREE
+  PREMIUM
 }

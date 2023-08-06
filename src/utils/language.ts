@@ -11,8 +11,8 @@ const cache = createIntlCache();
 
 export let intl: IntlShape = createIntl(
   {
-    locale: "pl",
-    messages: messages["pl"],
+    locale: "en",
+    messages: messages["en"],
   },
   cache
 );
